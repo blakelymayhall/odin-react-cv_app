@@ -1,0 +1,87 @@
+h1, h4, p {
+    margin:0;
+}
+
+a {
+    font-weight: 500;
+    color: #0000EE;
+    text-decoration: inherit;
+}
+a:hover {
+    color: #535bf2;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#headerSection {
+    height: 20%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #444444;
+    max-width: 90%;
+}
+
+#headerNameContainer {
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+#headerInfoRow {
+    margin-top: 2%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 20% 80%;
+}
+
+#headerContactTitleContainer, #headerLinksTitleContainer {
+    width: 100%;
+    position: relative;
+    text-decoration: underline;
+}
+
+#headerContactTitle {
+    text-align: center;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#headerLinksTitle {
+    text-align: center;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#headerContact {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#headerLinks {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.lineBreak {
+    margin-top: 10px;
+    min-height: 2px;
+    min-width: 105%;
+    background-color:darkblue;
+}
