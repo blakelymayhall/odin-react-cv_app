@@ -13,10 +13,7 @@ function CV_Header_Links() {
 
     return (
         <>
-            <div id="headerLinksTitleContainer">
-                <p id="headerLinksTitle">Links:</p>
-                <Edit_Button />
-            </div>
+            <p id="headerLinksTitle">Links:</p>
             <ul id="headerLinks">
                 {headerLinks.links.map((link) => {
                     return (

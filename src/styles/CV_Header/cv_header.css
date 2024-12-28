@@ -19,6 +19,7 @@ ul {
 }
 
 #headerSection {
+    width: 90%;
     height: 20%;
     margin: 0 auto;
     display: flex;
@@ -26,31 +27,31 @@ ul {
     align-items: center;
     justify-content: center;
     color: #444444;
-    max-width: 90%;
 }
 
 #headerNameContainer {
-    width: 100%;
+    width: 90%;
     text-align: center;
     position: relative;
 }
 
 #headerInfoRow {
     margin-top: 2%;
-    max-width: 100%;
+    min-width: 100%;
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: auto 10% auto;
     grid-template-rows: 20% 80%;
 }
 
-#headerContactTitleContainer, #headerLinksTitleContainer {
+#headerLinksTitle, #headerContactTitle {
     width: 100%;
     position: relative;
     text-decoration: underline;
+    margin-bottom:3mm;
+    text-align: center;
 }
 
 #headerContactTitle {
-    text-align: center;
     grid-row-start: 1;
     grid-row-end: 2;
     grid-column-start: 1;
@@ -58,29 +59,32 @@ ul {
 }
 
 #headerLinksTitle {
-    text-align: center;
     grid-row-start: 1;
     grid-row-end: 2;
-    grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
 }
 
 #headerContact {
+    margin-top: 5px;
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 1;
     grid-column-end: 2;
+    font-size: 0.75rem;
 }
 
 #headerLinks {
+    margin-top: 5px;
     grid-row-start: 2;
     grid-row-end: 3;
-    grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    font-size: 0.75rem;
 }
 
 .lineBreak {
-    margin-top: 10px;
+    margin-top: 5px;
     min-height: 2px;
     min-width: 105%;
     background-color:darkblue;

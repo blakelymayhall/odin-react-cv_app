@@ -11,10 +11,7 @@ function CV_Header_Contact() {
 
     return (
         <>
-            <div id="headerContactTitleContainer">
-                <p id="headerContactTitle">Contact:</p>
-                <Edit_Button />
-            </div>
+            <p id="headerContactTitle">Contact:</p>
             <ul id="headerContact">
                 <li>Email: {headerContactInfo.email}</li>
                 <li>Phone: {headerContactInfo.phone}</li>
