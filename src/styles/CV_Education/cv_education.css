@@ -1,0 +1,65 @@
+h1, h4, p {
+    margin:0;
+    padding: 0;
+}
+
+#educationSection {
+    padding-top: 5mm;
+    max-width: 100%;
+    margin: 0 auto;
+    color: #444444;
+}
+
+#educationTitle {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#educationContainer {
+    display: grid;
+    grid-template-columns: 10% 5% 85%;
+}
+
+#educationRows {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.educationRow{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 50% 50%;
+    padding-bottom: 5mm;
+}
+
+.educationSchoolName {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.educationDegree {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    font-weight: bold;
+}
+
+.educationDate {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: right;
+}
+
+.educationGPA{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: right;
+    font-weight: bold;
+}
