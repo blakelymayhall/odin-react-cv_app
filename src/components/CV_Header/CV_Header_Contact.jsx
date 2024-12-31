@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Edit_Button from "../Edit_Button";
 import "../../styles/CV_header/cv_header.css";
+import EditableText from "../EditableText";
 
 function CV_Header_Contact() {
     const [headerContactInfo, setHeaderContactInfo] = useState({
@@ -13,9 +14,15 @@ function CV_Header_Contact() {
         <>
             <p id="headerContactTitle">Contact:</p>
             <ul id="headerContact">
-                <li>Email: {headerContactInfo.email}</li>
-                <li>Phone: {headerContactInfo.phone}</li>
-                <li>Address: {headerContactInfo.address}</li>
+                <li>
+                    <EditableText prefix="Email: " initialText={headerContactInfo.email}></EditableText>
+                </li>
+                <li>
+                    <EditableText prefix="Phone: " initialText={headerContactInfo.phone}></EditableText>
+                </li>
+                <li>
+                    <EditableText prefix="Address: " initialText={headerContactInfo.address}></EditableText>
+                </li>
             </ul>
         </>
     );

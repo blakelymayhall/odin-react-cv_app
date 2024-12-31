@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../../styles/CV_Education/cv_education.css";
+import EditableText from "../EditableText";
 
 function CV_Education_Row() {
     const [educationRow, setEducationRow] = useState({
@@ -11,10 +12,10 @@ function CV_Education_Row() {
 
     return (
         <div className="educationRow">
-            <p className="educationSchoolName">{educationRow.schoolName}</p>
-            <p className="educationDegree">{educationRow.degree}</p>
-            <p className="educationDate">{educationRow.graduationDate}</p>
-            <p className="educationGPA">GPA: {educationRow.GPA}</p>
+            <EditableText textClass="educationSchoolName" initialText={educationRow.schoolName}></EditableText>
+            <EditableText textClass="educationDegree" initialText={educationRow.degree}></EditableText>
+            <EditableText textClass="educationDate" initialText={educationRow.graduationDate}></EditableText>
+            <EditableText prefix="GPA: " textClass="educationGPA" initialText={educationRow.GPA}></EditableText>
         </div>
     );
 }

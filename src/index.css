@@ -61,3 +61,9 @@ body {
 .editButton:hover {
   background-color: #0056b3;
 }
+
+.editableText {
+  cursor: pointer;
+  overflow: hidden;
+  resize: none;
+}
