@@ -35,6 +35,12 @@ ul {
     position: relative;
 }
 
+#headerName {
+    font-size: 2em;           /* Font size is usually 2 times the parent font size */
+    font-weight: bold;        /* Text is bold by default */
+    line-height: 1.2;    
+}
+
 #headerInfoRow {
     margin-top: 2%;
     min-width: 100%;
@@ -74,6 +80,14 @@ ul {
     font-size: 0.75rem;
 }
 
+#headerContact li {
+    width: 100%;
+}
+
+#headerContact li > * {
+    width: 100%;
+}
+
 #headerLinks {
     margin-top: 5px;
     grid-row-start: 2;
@@ -81,6 +95,14 @@ ul {
     grid-column-start: 3;
     grid-column-end: 4;
     font-size: 0.75rem;
+}
+
+#headerLinks li {
+    width: 100%;
+}
+
+#headerLinks li > * {
+    width: 100%;
 }
 
 .lineBreak {

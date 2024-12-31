@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Edit_Button from "../Edit_Button";
 import "../../styles/CV_header/cv_header.css";
+import EditableText from "../EditableText";
 
 function CV_Header_Name() {
     const [headerName, setHeaderName] = useState("Blakely Mayhall");
@@ -13,7 +14,7 @@ function CV_Header_Name() {
 
     return (
         <div id="headerNameContainer">
-            <h1 id="headerName">{headerName}</h1>
+            <EditableText textID="headerName" initialText={headerName}></EditableText>
         </div>
     );
 }
