@@ -32,7 +32,10 @@ function CV_Toolbar({ handleSetMode }) {
     const handleEditButtonClicked = () => {
         handleSetMode(false);
     };
-    const handleResetButtonClicked = () => alert("Reset button clicked!");
+    const handleResetButtonClicked = () => {
+        localStorage.clear();
+        window.location.reload();
+    };
     const handleSettingsButtonClicked = () => alert("Settings button clicked!");
 
     return (

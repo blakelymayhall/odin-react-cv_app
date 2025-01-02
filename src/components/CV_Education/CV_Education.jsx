@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../../styles/CV_Education/cv_education.css";
 import CV_Education_Row from "./CV_Education_Row";
 
@@ -32,13 +32,37 @@ function CV_Education() {
         },
     ];
 
+    const [educationState, setEducationState] = useState(() => {
+        const savedData = localStorage.getItem("educations");
+        return savedData ? JSON.parse(savedData) : educations;
+    });
+
+    useEffect(() => {
+        localStorage.setItem("educations", JSON.stringify(educationState));
+    }, [educationState]);
+
+    const modifyEducation = (eduIndex) => {
+        return (newEducation) => {
+            let edusCopy = [...educationState];
+            edusCopy[eduIndex] = newEducation;
+            console.log(edusCopy);
+            setEducationState(edusCopy);
+        };
+    };
+
     return (
         <div id="educationSection">
             <div id="educationContainer">
                 <p id="educationTitle">Education:</p>
                 <div id="educationRows">
-                    {educations.map((education) => {
-                        return <CV_Education_Row key={education.degree} educationRow={education} />;
+                    {educationState.map((education, index) => {
+                        return (
+                            <CV_Education_Row
+                                key={education.degree}
+                                educationRow={education}
+                                setterFunction={modifyEducation(index)}
+                            />
+                        );
                     })}
                 </div>
             </div>
