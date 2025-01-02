@@ -1,18 +1,30 @@
-import { useState } from "react";
-import Edit_Button from "../Edit_Button";
+import { useState, useEffect } from "react";
 import "../../styles/CV_header/cv_header.css";
 import EditableText from "../EditableText";
 
-import { faker } from "@faker-js/faker";
-
 function CV_Header_Links({ isPrintMode }) {
-    const links = ["https://www.linkedin.com/", "https://github.com/"];
+    const [headerLinks, setHeaderLinks] = useState(() => {
+        const savedData = localStorage.getItem("links");
+        return savedData ? JSON.parse(savedData) : ["https://www.linkedin.com/", "https://github.com/"];
+    });
+
+    useEffect(() => {
+        localStorage.setItem("links", JSON.stringify(headerLinks));
+    }, [headerLinks]);
+
+    const modifyLink = (linkIndex) => {
+        return (newLink) => {
+            let linksCopy = [...headerLinks];
+            linksCopy[linkIndex] = newLink;
+            setHeaderLinks(linksCopy);
+        };
+    };
 
     return (
         <>
             <p id="headerLinksTitle">Links:</p>
             <ul id="headerLinks">
-                {links.map((link) => {
+                {headerLinks.map((link, index) => {
                     return (
                         <li key={link}>
                             {isPrintMode ? (
@@ -20,7 +32,7 @@ function CV_Header_Links({ isPrintMode }) {
                                     {link}
                                 </a>
                             ) : (
-                                <EditableText initialText={link}></EditableText>
+                                <EditableText initialText={link} setterFunction={modifyLink(index)}></EditableText>
                             )}
                         </li>
                     );

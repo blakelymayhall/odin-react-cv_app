@@ -1,22 +1,20 @@
-import { useState } from "react";
-import Edit_Button from "../Edit_Button";
+import { useState, useEffect } from "react";
 import "../../styles/CV_header/cv_header.css";
 import EditableText from "../EditableText";
 
-import { faker } from "@faker-js/faker";
-
 function CV_Header_Name({ firstName, lastName }) {
-    const [headerName, setHeaderName] = useState(`${firstName} ${lastName}`);
+    const [headerName, setHeaderName] = useState(() => {
+        const savedData = localStorage.getItem("headerName");
+        return savedData ? JSON.parse(savedData) : `${firstName} ${lastName}`;
+    });
 
-    const handleEdit = () => {
-        const newName = prompt("Enter new name:", headerName);
-
-        if (newName !== null) setHeaderName(newName);
-    };
+    useEffect(() => {
+        localStorage.setItem("headerName", JSON.stringify(headerName));
+    }, [headerName]);
 
     return (
         <div id="headerNameContainer">
-            <EditableText textID="headerName" initialText={headerName}></EditableText>
+            <EditableText textID="headerName" initialText={headerName} setterFunction={setHeaderName}></EditableText>
         </div>
     );
 }

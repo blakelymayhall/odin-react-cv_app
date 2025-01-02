@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const EditableText = ({ prefix = "", initialText = "", textClass = "", textID = "" }) => {
+const EditableText = ({ prefix = "", initialText = "", textClass = "", textID = "", setterFunction }) => {
     const [isEditing, setIsEditing] = useState(false);
     const [text, setText] = useState(prefix + initialText);
     const [unmodifiedText, setUnmodifiedText] = useState("");
@@ -24,6 +24,7 @@ const EditableText = ({ prefix = "", initialText = "", textClass = "", textID = 
                 alert("Field cannot be empty");
                 setText(unmodifiedText);
             }
+            setterFunction(e.target.value); // do not save prefix
             setIsEditing(false);
         }
     };
