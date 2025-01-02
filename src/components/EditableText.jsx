@@ -23,8 +23,10 @@ const EditableText = ({ prefix = "", initialText = "", textClass = "", textID = 
             if (text === "") {
                 alert("Field cannot be empty");
                 setText(unmodifiedText);
+                setIsEditing(false);
+                return;
             }
-            setterFunction(e.target.value); // do not save prefix
+            setterFunction(e.target.value);
             setIsEditing(false);
         }
     };
