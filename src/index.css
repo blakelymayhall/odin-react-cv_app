@@ -25,6 +25,12 @@
   }
 }
 
+@media print {
+  .hide-on-print {
+    display: none !important;
+  }
+}
+
 body {
   display: flex;
   min-height: 279.4mm;

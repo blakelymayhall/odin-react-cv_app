@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import CV_Toolbar_Button from "./CV_Toolbar_Button";
 import "../../styles/CV_Toolbar/cv_toolbar.css";
 
-function CV_Toolbar() {
+function CV_Toolbar({ handleSetMode }) {
     const [toolbarState, setToolbarState] = useState(0);
     const [componentWidth, setComponentWidth] = useState(0);
 
@@ -10,7 +10,6 @@ function CV_Toolbar() {
         const updateWidth = () => {
             const bodyStyle = window.getComputedStyle(document.body);
             const bodyMarginLeft = parseFloat(bodyStyle.marginLeft);
-            console.log(bodyMarginLeft);
             setComponentWidth(bodyMarginLeft);
         };
         updateWidth();
@@ -20,14 +19,24 @@ function CV_Toolbar() {
         };
     }, []);
 
-    const handlePrintClicked = () => alert("Print button clicked!");
-    const handlePreviewButtonClicked = () => alert("Preview button clicked!");
-    const handleEditButtonClicked = () => alert("Edit button clicked!");
+    const handlePrintClicked = () => {
+        handleSetMode(true);
+        setTimeout(() => {
+            window.print();
+            handleSetMode(false);
+        }, 0);
+    };
+    const handlePreviewButtonClicked = () => {
+        handleSetMode(true);
+    };
+    const handleEditButtonClicked = () => {
+        handleSetMode(false);
+    };
     const handleResetButtonClicked = () => alert("Reset button clicked!");
     const handleSettingsButtonClicked = () => alert("Settings button clicked!");
 
     return (
-        <div id="toolbar" style={{ width: componentWidth + "px" }}>
+        <div id="toolbar" className="hide-on-print" style={{ width: componentWidth + "px" }}>
             <CV_Toolbar_Button buttonID="printButton" buttonText="Print" onClick={handlePrintClicked} />
             <CV_Toolbar_Button
                 buttonID="previewButton"
