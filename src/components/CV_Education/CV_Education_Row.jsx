@@ -8,20 +8,25 @@ function CV_Education_Row({ educationRow, setterFunction }) {
     const setEducationSchool = (newSchool) => {
         let newEducationRow = { ...educationRowState, schoolName: newSchool };
         setEducationRowState(newEducationRow);
-        console.log(newEducationRow);
         setterFunction(newEducationRow);
     };
 
     const setEducationDegree = (newDegree) => {
-        setEducationRowState({ ...educationRowState, degree: newDegree });
+        let newEducationRow = { ...educationRowState, degree: newDegree };
+        setEducationRowState(newEducationRow);
+        setterFunction(newEducationRow);
     };
 
     const setEducationDate = (newDate) => {
-        setEducationRowState({ ...educationRowState, graduationDate: newDate });
+        let newEducationRow = { ...educationRowState, graduationDate: newDate };
+        setEducationRowState(newEducationRow);
+        setterFunction(newEducationRow);
     };
 
     const setEducationGPA = (newGPA) => {
-        setEducationRowState({ ...educationRowState, GPA: newGPA });
+        let newEducationRow = { ...educationRowState, GPA: newGPA };
+        setEducationRowState(newEducationRow);
+        setterFunction(newEducationRow);
     };
 
     return (

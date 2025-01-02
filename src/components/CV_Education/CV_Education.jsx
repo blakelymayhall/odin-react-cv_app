@@ -45,7 +45,6 @@ function CV_Education() {
         return (newEducation) => {
             let edusCopy = [...educationState];
             edusCopy[eduIndex] = newEducation;
-            console.log(edusCopy);
             setEducationState(edusCopy);
         };
     };
