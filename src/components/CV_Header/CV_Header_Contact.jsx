@@ -3,11 +3,15 @@ import Edit_Button from "../Edit_Button";
 import "../../styles/CV_header/cv_header.css";
 import EditableText from "../EditableText";
 
-function CV_Header_Contact() {
+import { faker } from "@faker-js/faker";
+
+function CV_Header_Contact({ firstName, lastName }) {
     const [headerContactInfo, setHeaderContactInfo] = useState({
-        email: "name@domain.com",
-        phone: "###-###-####",
-        address: "### Circle, City, State #####",
+        email: faker.internet.email({ firstName: firstName, lastName: lastName }),
+        phone: faker.phone.number(),
+        address: `${faker.location.streetAddress()}, ${faker.location.state({
+            abbreviated: true,
+        })} ${faker.location.zipCode()}`,
     });
 
     return (
