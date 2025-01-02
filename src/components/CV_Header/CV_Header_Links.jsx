@@ -3,7 +3,7 @@ import Edit_Button from "../Edit_Button";
 import "../../styles/CV_header/cv_header.css";
 import EditableText from "../EditableText";
 
-function CV_Header_Links() {
+function CV_Header_Links({ isPrintMode }) {
     const [headerLinks, setHeaderLinks] = useState({
         links: [
             "https://www.linkedin.com/in/blakely-mayhall-197689105/",
@@ -12,13 +12,6 @@ function CV_Header_Links() {
         ],
     });
 
-    /* When you implement print mode / edit mode, change the EditableText to an <a> 
-
-                            <a href={link} target="_blank">
-                                {link}
-                            </a>
-    */
-
     return (
         <>
             <p id="headerLinksTitle">Links:</p>
@@ -26,7 +19,13 @@ function CV_Header_Links() {
                 {headerLinks.links.map((link) => {
                     return (
                         <li key={link}>
-                            <EditableText initialText={link}></EditableText>
+                            {isPrintMode ? (
+                                <a href={link} target="_blank" rel="noopener noreferrer">
+                                    {link}
+                                </a>
+                            ) : (
+                                <EditableText initialText={link}></EditableText>
+                            )}
                         </li>
                     );
                 })}
