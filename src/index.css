@@ -37,7 +37,10 @@ body {
   min-width: 215.9mm;
   max-width: 215.9mm; /* For Letter size */
   margin: 0 auto; /* Centers the content horizontally */
-  padding: 1rem; /* Optional: Adds some padding around the content */
+  padding-left: 3rem; 
+  padding-right: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   box-sizing: border-box; /* Ensures padding is included in the width */
   background-color: white;
   border: 1px solid #000; /* Black border for the edge */
