@@ -37,7 +37,10 @@ body {
   min-width: 215.9mm;
   max-width: 215.9mm; /* For Letter size */
   margin: 0 auto; /* Centers the content horizontally */
-  padding: 1rem; /* Optional: Adds some padding around the content */
+  padding-left: 3rem; 
+  padding-right: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   box-sizing: border-box; /* Ensures padding is included in the width */
   background-color: white;
   border: 1px solid #000; /* Black border for the edge */
@@ -51,21 +54,43 @@ body {
   height: 100%;
 }
 
-.editButton {
-  position: absolute; /* Positions the button relative to the container */
-  top: 10px; /* Distance from the top edge of the container */
-  right: 10px; /* Distance from the right edge of the container */
+.addSubtractContentButtons {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 12mm;
+}
+
+.addButton {
+  width: 5mm;
+  height: 5mm;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
   padding: 5px 10px;
-  font-size: 0.9rem;
   cursor: pointer;
 }
 
-.editButton:hover {
-  background-color: #0056b3;
+.addButton:hover {
+  background-color: lightblue;
+}
+
+.removeButton {
+  width: 5mm;
+  height: 5mm;
+  background-color: maroon;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.removeButton:hover {
+  background-color: red;
 }
 
 .editableText {

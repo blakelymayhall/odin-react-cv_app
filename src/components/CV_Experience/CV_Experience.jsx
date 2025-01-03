@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "../../styles/CV_Experience/cv_experience.css";
 import CV_Experience_Row from "./CV_Experience_Row";
-
+import AddSubContentControls from "../AddSubContentControls";
 import { faker } from "@faker-js/faker";
 
 function CV_Experience() {
@@ -92,6 +92,7 @@ function CV_Experience() {
 
     return (
         <div id="experienceSection">
+            <AddSubContentControls />
             <div id="experienceContainer">
                 <p id="experienceTitle">Experience:</p>
                 <div id="experienceRows">

@@ -47,6 +47,7 @@ ul {
     display: grid;
     grid-template-columns: auto 10% auto;
     grid-template-rows: 20% 80%;
+    position: relative;
 }
 
 #headerLinksTitle, #headerContactTitle {

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "../../styles/CV_header/cv_header.css";
 import EditableText from "../EditableText";
+import AddSubContentControls from "../AddSubContentControls";
 
 function CV_Header_Links({ isPrintMode }) {
     const [headerLinks, setHeaderLinks] = useState(() => {
@@ -23,6 +24,7 @@ function CV_Header_Links({ isPrintMode }) {
     return (
         <>
             <p id="headerLinksTitle">Links:</p>
+            <AddSubContentControls topPos={"0mm"} leftPos={"150mm"} />
             <ul id="headerLinks">
                 {headerLinks.map((link, index) => {
                     return (
