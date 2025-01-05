@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import CV_Toolbar_Button from "./CV_Toolbar_Button";
+import { CV_App_Modes } from "../../App";
 import "../../styles/CV_Toolbar/cv_toolbar.css";
 
 function CV_Toolbar({ handleSetMode }) {
@@ -20,23 +21,25 @@ function CV_Toolbar({ handleSetMode }) {
     }, []);
 
     const handlePrintClicked = () => {
-        handleSetMode(true);
+        handleSetMode(CV_App_Modes.PRINT);
         setTimeout(() => {
             window.print();
-            handleSetMode(false);
+            handleSetMode(CV_App_Modes.EDIT);
         }, 0);
     };
     const handlePreviewButtonClicked = () => {
-        handleSetMode(true);
+        handleSetMode(CV_App_Modes.PRINT);
     };
     const handleEditButtonClicked = () => {
-        handleSetMode(false);
+        handleSetMode(CV_App_Modes.EDIT);
     };
     const handleResetButtonClicked = () => {
         localStorage.clear();
         window.location.reload();
     };
-    const handleSettingsButtonClicked = () => alert("Settings button clicked!");
+    const handleSettingsButtonClicked = () => {
+        handleSetMode(CV_App_Modes.SETTINGS);
+    };
 
     return (
         <div id="toolbar" className="hide-on-print" style={{ width: componentWidth + "px" }}>

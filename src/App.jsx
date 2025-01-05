@@ -6,17 +6,23 @@ import CV_Education from "./components/CV_Education/CV_Education.jsx";
 import CV_Toolbar from "./components/CV_Toolbar/CV_Toolbar.jsx";
 import CV_Experience from "./components/CV_Experience/CV_Experience.jsx";
 
-const App = () => {
-    const [isPrintMode, setIsPrintMode] = useState(false);
+export const CV_App_Modes = {
+    PRINT: "print",
+    EDIT: "edit",
+    SETTINGS: "settings",
+};
 
-    const handleSetMode = (modeButtonClick) => {
-        setIsPrintMode(modeButtonClick);
+const App = () => {
+    const [CV_App_Mode, setCV_App_Mode] = useState(CV_App_Modes.EDIT);
+
+    const handleSetMode = (CV_App_Mode) => {
+        setCV_App_Mode(CV_App_Mode);
     };
 
     return (
         <>
             <CV_Toolbar handleSetMode={handleSetMode} />
-            <CV_Header isPrintMode={isPrintMode} />
+            <CV_Header isPrintMode={CV_App_Mode == CV_App_Modes.PRINT} />
             <CV_Objective />
             <CV_Education />
             <CV_Experience />
