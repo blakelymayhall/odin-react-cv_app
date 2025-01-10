@@ -10,11 +10,9 @@ function CV_Header_Contact({ firstName, lastName, setActiveSection, onEdit }) {
         return savedData
             ? JSON.parse(savedData)
             : {
-                  email: faker.internet.email({ firstName: firstName, lastName: lastName }),
-                  phone: faker.phone.number(),
-                  address: `${faker.location.streetAddress()}, ${faker.location.state({
-                      abbreviated: true,
-                  })} ${faker.location.zipCode()}`,
+                  email: "blakely.c.mayhall@boeing.com",
+                  phone: "479-366-7296",
+                  address: "401 Sceptre Rd., Wentzville, MO 63385",
               };
     });
 

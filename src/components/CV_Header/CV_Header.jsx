@@ -9,8 +9,8 @@ import "../../styles/CV_header/cv_header.css";
 import { faker } from "@faker-js/faker";
 
 function CV_Header({ appMode, activeSection, setActiveSection }) {
-    const firstName = faker.person.firstName();
-    const lastName = faker.person.lastName();
+    const firstName = "Blakely C.";
+    const lastName = "Mayhall";
 
     const isActiveSection = () => {
         return (

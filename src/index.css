@@ -1,6 +1,9 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Arial", sans-serif;
   font-weight: 400;
+
+  font-size: 11pt; /* Standard size for readability */
+  line-height: 1.3; /* Improves readability */
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -43,8 +46,6 @@ body {
   padding-bottom: 1rem;
   box-sizing: border-box; /* Ensures padding is included in the width */
   background-color: white;
-  border: 1px solid #000; /* Black border for the edge */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a slight shadow for effect */
   flex-direction: row;
   justify-content: center;
 }
@@ -100,4 +101,74 @@ body {
 .activeSection {
   border: 1px solid blue; /* Subtle border */
   border-radius: 5px; /* Rounded corners */
+}
+
+#skillsSection {
+  max-width: 100%;
+  margin: 0 auto;
+  color: #444444;
+  margin-top: 3mm;
+}
+
+#skillsContainer {
+  display: grid;
+  grid-template-columns: 10% 2% 87%;
+}
+
+#skillTitle {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+#skillsGrid {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width: 100%;
+}
+
+#honorsSection {
+  max-width: 100%;
+  margin: 0 auto;
+  color: #444444;
+  padding-top: 5mm;
+}
+
+#honorsContainer{
+  display: grid;
+  grid-template-columns: 10% 2% 87%;
+}
+
+#honorsTitle {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+#honorsList {
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+#projectsSection {
+  max-width: 100%;
+  margin: 0 auto;
+  color: #444444;
+  padding-top: 5mm;
+}
+
+#projectsContainer {
+  display: grid;
+  grid-template-columns: 10% 2% 95%;
+}
+
+#projectsTitle {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+#projectsList {
+  grid-column-start: 3;
+  grid-column-end: 4;
 }

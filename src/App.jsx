@@ -60,6 +60,56 @@ const App = () => {
                     return sectionBeingEdited == CV_App_Editable_Sections.EXPERIENCE;
                 }}
             />
+            <div id="skillsSection">
+                <div id="skillsContainer">
+                    <p id="skillTitle">Skills:</p>
+                    <div id="skillsGrid">
+                        <p>C/C++</p>
+                        <p>MATRIXx</p>
+                        <p>Python</p>
+                        <p>Git/GitLab</p>
+                        <p>Linux</p>
+                        <p>Jira/Rally</p>
+                        <p>FORTRAN</p>
+                        <p>C#</p>
+                        <p>Docker</p>
+                        <p>CI/CD</p>
+                        <p>JavaScript</p>
+                        <p>MATLAB</p>
+                    </div>
+                </div>
+            </div>
+            <div id="honorsSection">
+                <div id="honorsContainer">
+                    <p id="honorsTitle">Honors & Activities:</p>
+                    <div id="honorsList">
+                        <p>The Boeing Company: 2023 Excellence in Digital Engineering</p>
+                        <p>The Boeing Company: 2021 MWS Engineering Team of the Year (Golden Horde)</p>
+                        <p>Missouri S&T: Missouri Satellite Team Guidance, Navigation, and Control</p>
+                        <p>Missouri S&T: Boeing Mentor Program</p>
+                        <p>Lambda Chi Alpha: National Social Fraternity - Secretary</p>
+                    </div>
+                </div>
+            </div>
+            <div id="projectsSection">
+                <div id="projectsContainer">
+                    <p id="projectsTitle">Projects:</p>
+                    <div id="projectsList">
+                        <p>
+                            <strong>Faker-Cxx: Unit Test Fix (C++, GTest, CI/CD)</strong> -
+                            https://github.com/cieslarmichal/faker-cxx/issues/999
+                        </p>
+                        <p>
+                            <strong>War Card Game: Unity Development (C#)</strong> -
+                            https://github.com/blakelymayhall/Unity_War_CardGame
+                        </p>
+                        <p>
+                            <strong>Weather API App: (HTML / CSS / JavaScript)</strong> -
+                            https://github.com/blakelymayhall/odin-weather-app
+                        </p>
+                    </div>
+                </div>
+            </div>
         </>
     );
 };

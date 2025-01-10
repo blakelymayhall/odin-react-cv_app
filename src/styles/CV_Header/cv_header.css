@@ -20,7 +20,6 @@ ul {
 
 #headerSection {
     width: 90%;
-    height: 20%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -42,7 +41,6 @@ ul {
 }
 
 #headerInfoRow {
-    margin-top: 2%;
     min-width: 100%;
     display: grid;
     grid-template-columns: auto 10% auto;

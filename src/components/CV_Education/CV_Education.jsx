@@ -10,28 +10,16 @@ import { faker } from "@faker-js/faker";
 function CV_Education({ appMode, activeSection, setActiveSection }) {
     const educations = [
         {
-            schoolName: `${faker.food.vegetable()} University`,
-            degree: `M.S. ${faker.food.vegetable()} ${faker.food.fruit()}`,
-            graduationDate: `${faker.date.month({ abbreviated: true, context: true })} ${faker.date
-                .between({
-                    from: "2000-01-01T00:00:00.000Z",
-                    to: Date.now(),
-                })
-                .getFullYear()
-                .toString()}`,
-            GPA: `${(Math.random() * 4).toFixed(2)} / 4.0`,
+            schoolName: `Washington University in St. Louis`,
+            degree: `M.S. Aerospace Engineering`,
+            graduationDate: `Aug 2021`,
+            GPA: `4.0 / 4.0`,
         },
         {
-            schoolName: `${faker.food.vegetable()} University`,
-            degree: `M.S. ${faker.food.vegetable()} ${faker.food.fruit()}`,
-            graduationDate: `${faker.date.month({ abbreviated: true, context: true })} ${faker.date
-                .between({
-                    from: "2000-01-01T00:00:00.000Z",
-                    to: Date.now(),
-                })
-                .getFullYear()
-                .toString()}`,
-            GPA: `${(Math.random() * 4).toFixed(2)} / 4.0`,
+            schoolName: `Missouri University of Science and Technology (Missouri S&T)`,
+            degree: `B.S. Aerospace Engineering`,
+            graduationDate: `May 2019`,
+            GPA: `4.0 / 4.0`,
         },
     ];
 

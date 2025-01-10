@@ -8,7 +8,13 @@ import AddRemoveContentButton from "../AddRemoveContentButton";
 function CV_Header_Links({ appMode, activeSection, setActiveSection, onEdit }) {
     const [headerLinks, setHeaderLinks] = useState(() => {
         const savedData = localStorage.getItem("links");
-        return savedData ? JSON.parse(savedData) : ["https://www.linkedin.com/", "https://github.com/"];
+        return savedData
+            ? JSON.parse(savedData)
+            : [
+                  "https://www.linkedin.com/in/blakely-mayhall-197689105/",
+                  "https://github.com/blakelymayhall",
+                  "https://blakelymayhall.github.io/personal-website/",
+              ];
     });
 
     useEffect(() => {
@@ -45,7 +51,7 @@ function CV_Header_Links({ appMode, activeSection, setActiveSection, onEdit }) {
                 {headerLinks.map((link, index) => {
                     return (
                         <li key={link}>
-                            {appMode == CV_App_Modes.PRINT ? (
+                            {false ? (
                                 <a href={link} target="_blank" rel="noopener noreferrer">
                                     {link}
                                 </a>

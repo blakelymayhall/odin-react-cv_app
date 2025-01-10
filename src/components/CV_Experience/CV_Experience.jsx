@@ -27,58 +27,49 @@ function CV_Experience({ appMode, activeSection, setActiveSection }) {
 
     const experiences = [
         {
-            companyName: faker.company.name(),
-            companyLocation: `${faker.location.city()}, ${faker.location.state({ abbreviated: true })}`,
+            companyName: "The Boeing Company",
+            companyLocation: `St. Charles, MO`,
             jobs: [
                 {
-                    jobTitle: `${faker.company.buzzVerb()} ${faker.company.buzzNoun()}`,
-                    jobDateRange: generateRandomDateRange(),
+                    jobTitle: `Collaborative Weapons Project Lead`,
+                    jobDateRange: "Oct 2024 to Present (5 mos)",
                     jobBullets: [
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
+                        "Led development efforts for the modeling, simulation, and system implementation of network enabled weapons ",
+                        "Planned, refined, and released work to team of cross-discipline engineers",
+                        "Established version control strategy, continuous integration (CI) capabilities, interface control documents, and project-level requirements",
+                        "Collaborated with an external team and championed Boeing's strategic interests in autonomous flight",
                     ],
                 },
                 {
-                    jobTitle: `${faker.company.buzzVerb()} ${faker.company.buzzNoun()}`,
-                    jobDateRange: generateRandomDateRange(),
+                    jobTitle: `Guidance & Control Engineer III`,
+                    jobDateRange: "April 2024 to Present (10 mos)",
                     jobBullets: [
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
+                        "Worked with international customers to resolve high-priority system failures, leveraging model-based engineering to identify root causes",
+                        "Ported legacy FORTRAN rocket simulation into MATRIXx environment",
+                        "Developed C++ based REPL layer and VSCode ext. for MATRIXx to reduce analysis time",
                     ],
                 },
-            ],
-        },
-        {
-            companyName: faker.company.name(),
-            companyLocation: `${faker.location.city()}, ${faker.location.state({ abbreviated: true })}`,
-            jobs: [
                 {
-                    jobTitle: `${faker.company.buzzVerb()} ${faker.company.buzzNoun()}`,
-                    jobDateRange: generateRandomDateRange(),
+                    jobTitle: `Guidance & Control Engineer I-II`,
+                    jobDateRange: "June 2019 to Aug 2023 (4 yr 3 mos)",
                     jobBullets: [
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
+                        "Developed plugin for Linux-based distributed system simulation to model the interface and Operational Flight Program (OFP) of a weapon in a collaborative weapons simulation",
+                        "Enabled process for C++ simulation capability on Linux High Performance Computing clusters",
                     ],
                 },
             ],
         },
         {
-            companyName: faker.company.name(),
-            companyLocation: `${faker.location.city()}, ${faker.location.state({ abbreviated: true })}`,
+            companyName: "Ag Leader Technology",
+            companyLocation: `Ames, IA`,
             jobs: [
                 {
-                    jobTitle: `${faker.company.buzzVerb()} ${faker.company.buzzNoun()}`,
-                    jobDateRange: generateRandomDateRange(),
+                    jobTitle: `Senior Software Engineer`,
+                    jobDateRange: "Aug 2023 to April 2024 (9 mos)",
                     jobBullets: [
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
+                        "Championed Scrum process change to improve work traceability and force deliberate testing",
+                        "Initiated and led efforts to establish enhanced process documentation and code practices",
+                        "Integrated legacy standard agricultural software into a modern device framework and enhanced the user interface",
                     ],
                 },
             ],

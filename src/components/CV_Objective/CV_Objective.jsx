@@ -9,8 +9,7 @@ function CV_Objective({ setActiveSection, appMode, activeSection }) {
         const savedData = localStorage.getItem("objective");
         return savedData
             ? JSON.parse(savedData)
-            : "Software Engineer with a demonstrated history of delivering " +
-                  "well-structured and efficient products that meet first-time quality standards";
+            : "Flight Software Engineer with a passion for optimizing workflow processes and enhancing efficiency in engineering operations.";
     });
 
     useEffect(() => {
