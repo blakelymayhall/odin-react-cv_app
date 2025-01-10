@@ -12,20 +12,54 @@ export const CV_App_Modes = {
     SETTINGS: "settings",
 };
 
+export const CV_App_Editable_Sections = {
+    HEADER_OTHER: "header_other",
+    HEADER_LINKS: "header_links",
+    OBJECTIVE: "objective",
+    EDUCATION: "education",
+    EXPERIENCE: "experience",
+};
+
 const App = () => {
     const [CV_App_Mode, setCV_App_Mode] = useState(CV_App_Modes.EDIT);
+    const [sectionBeingEdited, setSectionBeingEdited] = useState(0);
 
     const handleSetMode = (CV_App_Mode) => {
         setCV_App_Mode(CV_App_Mode);
     };
 
+    const setActiveSection = (CV_App_Editable_Section) => {
+        setSectionBeingEdited(CV_App_Editable_Section);
+    };
+
     return (
         <>
             <CV_Toolbar handleSetMode={handleSetMode} />
-            <CV_Header isPrintMode={CV_App_Mode == CV_App_Modes.PRINT} />
-            <CV_Objective />
-            <CV_Education />
-            <CV_Experience />
+            <CV_Header appMode={CV_App_Mode} activeSection={sectionBeingEdited} setActiveSection={setActiveSection} />
+            <CV_Objective
+                appMode={CV_App_Mode}
+                activeSection={sectionBeingEdited}
+                setActiveSection={() => {
+                    setActiveSection(CV_App_Editable_Sections.OBJECTIVE);
+                    return true;
+                }}
+            />
+            <CV_Education
+                appMode={CV_App_Mode}
+                activeSection={sectionBeingEdited}
+                setActiveSection={() => {
+                    setActiveSection(CV_App_Editable_Sections.EDUCATION);
+                    return sectionBeingEdited == CV_App_Editable_Sections.EDUCATION;
+                }}
+            />
+            <CV_Experience
+                appMode={CV_App_Mode}
+                activeSection={sectionBeingEdited}
+                setActiveSection={() => {
+                    setActiveSection(CV_App_Editable_Sections.EXPERIENCE);
+                    return sectionBeingEdited == CV_App_Editable_Sections.EXPERIENCE;
+                }}
+            />
         </>
     );
 };

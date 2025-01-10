@@ -63,3 +63,8 @@ h1, h4, p {
     text-align: right;
     font-weight: bold;
 }
+
+#removeEducationButton, #addEducationButton {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}

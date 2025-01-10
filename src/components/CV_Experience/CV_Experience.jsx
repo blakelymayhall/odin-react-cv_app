@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import "../../styles/CV_Experience/cv_experience.css";
 import CV_Experience_Row from "./CV_Experience_Row";
-
+import AddRemoveContentButton from "../AddRemoveContentButton";
+import { CV_App_Modes } from "../../App";
+import { CV_App_Editable_Sections } from "../../App";
 import { faker } from "@faker-js/faker";
 
-function CV_Experience() {
+function CV_Experience({ appMode, activeSection, setActiveSection }) {
     const generateRandomDateRange = () => {
         const date1 = faker.date.between({
             from: "2000-01-01T00:00:00.000Z",
@@ -28,6 +30,16 @@ function CV_Experience() {
             companyName: faker.company.name(),
             companyLocation: `${faker.location.city()}, ${faker.location.state({ abbreviated: true })}`,
             jobs: [
+                {
+                    jobTitle: `${faker.company.buzzVerb()} ${faker.company.buzzNoun()}`,
+                    jobDateRange: generateRandomDateRange(),
+                    jobBullets: [
+                        faker.lorem.sentence({ min: 8, max: 14 }),
+                        faker.lorem.sentence({ min: 8, max: 14 }),
+                        faker.lorem.sentence({ min: 8, max: 14 }),
+                        faker.lorem.sentence({ min: 8, max: 14 }),
+                    ],
+                },
                 {
                     jobTitle: `${faker.company.buzzVerb()} ${faker.company.buzzNoun()}`,
                     jobDateRange: generateRandomDateRange(),
@@ -78,6 +90,8 @@ function CV_Experience() {
         return savedData ? JSON.parse(savedData) : experiences;
     });
 
+    const [companyIndexBeingEdited, setCompanyIndexBeingEdited] = useState(-1);
+
     useEffect(() => {
         localStorage.setItem("experiences", JSON.stringify(experienceState));
     }, [experienceState]);
@@ -90,9 +104,50 @@ function CV_Experience() {
         };
     };
 
+    const handleEdit = (companyIndex = -1) => {
+        setCompanyIndexBeingEdited(companyIndex);
+    };
+
+    const addExperience = () => {
+        let expCopys = [...experienceState];
+        expCopys.unshift({
+            companyName: faker.company.name(),
+            companyLocation: `${faker.location.city()}, ${faker.location.state({ abbreviated: true })}`,
+            jobs: [
+                {
+                    jobTitle: `${faker.company.buzzVerb()} ${faker.company.buzzNoun()}`,
+                    jobDateRange: generateRandomDateRange(),
+                    jobBullets: [
+                        faker.lorem.sentence({ min: 8, max: 14 }),
+                        faker.lorem.sentence({ min: 8, max: 14 }),
+                        faker.lorem.sentence({ min: 8, max: 14 }),
+                    ],
+                },
+            ],
+        });
+        setExperienceState(expCopys);
+    };
+
+    const removeExperience = () => {
+        let expCopys = [...experienceState];
+        expCopys.pop();
+        setExperienceState(expCopys);
+    };
+
+    const isActiveSection = () => {
+        return appMode == CV_App_Modes.EDIT && activeSection == CV_App_Editable_Sections.EXPERIENCE;
+    };
+
     return (
-        <div id="experienceSection">
+        <div id="experienceSection" className={isActiveSection() ? "activeSection" : ""}>
             <div id="experienceContainer">
+                {isActiveSection() && (
+                    <AddRemoveContentButton
+                        buttonID="addExperienceButton"
+                        sectionFunction={addExperience}
+                        buttonText="Add Experience"
+                    />
+                )}
                 <p id="experienceTitle">Experience:</p>
                 <div id="experienceRows">
                     {experienceState.map((experience, index) => {
@@ -100,11 +155,24 @@ function CV_Experience() {
                             <CV_Experience_Row
                                 key={experience.companyName}
                                 experienceRow={experience}
+                                appMode={appMode}
+                                activeSection={activeSection}
+                                activeCompanyIndex={companyIndexBeingEdited}
+                                companyIndex={index}
                                 setterFunction={modifyExperience(index)}
+                                setActiveSection={setActiveSection}
+                                onEdit={() => handleEdit(index)}
                             />
                         );
                     })}
                 </div>
+                {experienceState.length > 1 && isActiveSection() && (
+                    <AddRemoveContentButton
+                        buttonID="removeExperienceButton"
+                        sectionFunction={removeExperience}
+                        buttonText="Remove Experience"
+                    />
+                )}
             </div>
         </div>
     );

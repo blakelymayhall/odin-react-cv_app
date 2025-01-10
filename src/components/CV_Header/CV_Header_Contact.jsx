@@ -4,7 +4,7 @@ import EditableText from "../EditableText";
 
 import { faker } from "@faker-js/faker";
 
-function CV_Header_Contact({ firstName, lastName }) {
+function CV_Header_Contact({ firstName, lastName, setActiveSection, onEdit }) {
     const [headerContactInfo, setHeaderContactInfo] = useState(() => {
         const savedData = localStorage.getItem("contactInfo");
         return savedData
@@ -22,28 +22,9 @@ function CV_Header_Contact({ firstName, lastName }) {
         localStorage.setItem("contactInfo", JSON.stringify(headerContactInfo));
     }, [headerContactInfo]);
 
-    const setHeaderEmail = (newEmail) => {
-        setHeaderContactInfo({
-            email: newEmail,
-            phone: headerContactInfo.phone,
-            address: headerContactInfo.address,
-        });
-    };
-
-    const setHeaderPhone = (newPhone) => {
-        setHeaderContactInfo({
-            email: headerContactInfo.email,
-            phone: newPhone,
-            address: headerContactInfo.address,
-        });
-    };
-
-    const setHeaderAddress = (newAddy) => {
-        setHeaderContactInfo({
-            email: headerContactInfo.email,
-            phone: headerContactInfo.phone,
-            address: newAddy,
-        });
+    const updateContactField = (fieldName, newValue) => {
+        const newContactInfo = { ...headerContactInfo, [fieldName]: newValue };
+        setHeaderContactInfo(newContactInfo);
     };
 
     return (
@@ -54,21 +35,27 @@ function CV_Header_Contact({ firstName, lastName }) {
                     <EditableText
                         prefix="Email: "
                         initialText={headerContactInfo.email}
-                        setterFunction={setHeaderEmail}
+                        setterFunction={(newEmail) => updateContactField("email", newEmail)}
+                        setActiveSection={setActiveSection}
+                        onEdit={onEdit}
                     ></EditableText>
                 </li>
                 <li>
                     <EditableText
                         prefix="Phone: "
                         initialText={headerContactInfo.phone}
-                        setterFunction={setHeaderPhone}
+                        setterFunction={(newPhone) => updateContactField("phone", newPhone)}
+                        setActiveSection={setActiveSection}
+                        onEdit={onEdit}
                     ></EditableText>
                 </li>
                 <li>
                     <EditableText
                         prefix="Address: "
                         initialText={headerContactInfo.address}
-                        setterFunction={setHeaderAddress}
+                        setterFunction={(newAddy) => updateContactField("address", newAddy)}
+                        setActiveSection={setActiveSection}
+                        onEdit={onEdit}
                     ></EditableText>
                 </li>
             </ul>
