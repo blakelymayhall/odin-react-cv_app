@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "../../styles/CV_header/cv_header.css";
 import EditableText from "../EditableText";
 
-function CV_Header_Name({ firstName, lastName }) {
+function CV_Header_Name({ firstName, lastName, setActiveSection, onEdit }) {
     const [headerName, setHeaderName] = useState(() => {
         const savedData = localStorage.getItem("headerName");
         return savedData ? JSON.parse(savedData) : `${firstName} ${lastName}`;
@@ -14,7 +14,13 @@ function CV_Header_Name({ firstName, lastName }) {
 
     return (
         <div id="headerNameContainer">
-            <EditableText textID="headerName" initialText={headerName} setterFunction={setHeaderName}></EditableText>
+            <EditableText
+                textID="headerName"
+                initialText={headerName}
+                setterFunction={setHeaderName}
+                setActiveSection={setActiveSection}
+                onEdit={onEdit}
+            />
         </div>
     );
 }

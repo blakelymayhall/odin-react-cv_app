@@ -111,3 +111,31 @@ ul {
     min-width: 110%;
     background-color:darkblue;
 }
+
+
+#addLinkButton {
+    padding: 0;
+    margin: 0;
+    padding-bottom: 2mm;
+}
+
+#removeLinkButton {
+    padding: 0;
+    margin: 0;
+    margin-top: 2mm;
+}
+
+#removeLinkButton, #addLinkButton {
+    background: none;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: inherit; /* Matches surrounding text size */
+}
+
+#removeLinkButton:hover, #addLinkButton:hover {
+    background-color: #0056b3; /* Darker blue */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+  

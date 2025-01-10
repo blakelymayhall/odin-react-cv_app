@@ -76,3 +76,28 @@ body {
   overflow: hidden;
   resize: none;
 }
+
+.addSectionButton {
+  width: fit-content;
+  margin: 0 auto;
+  background-color: #007bff; /* Primary blue */
+  color: white; /* Text color */
+  padding: 10px 20px; /* Comfortable padding */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 5px; /* Rounded corners */
+  font-family: Arial, sans-serif; /* Clean font */
+  font-size: 14px; /* Standard text size */
+  font-weight: bold; /* Emphasize text */
+  cursor: pointer; /* Indicate interactivity */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.addSectionButton:hover {
+  background-color: #0056b3; /* Darker blue */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+.activeSection {
+  border: 1px solid blue; /* Subtle border */
+  border-radius: 5px; /* Rounded corners */
+}

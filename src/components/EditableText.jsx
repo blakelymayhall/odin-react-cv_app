@@ -1,13 +1,28 @@
 import React, { useState } from "react";
+import { CV_App_Modes } from "../App";
+import { CV_App_Editable_Sections } from "../App";
 
-const EditableText = ({ prefix = "", initialText = "", textClass = "", textID = "", setterFunction }) => {
+const EditableText = ({
+    prefix = "",
+    initialText = "",
+    textClass = "",
+    textID = "",
+    setterFunction,
+    setActiveSection,
+    onEdit,
+}) => {
     const [isEditing, setIsEditing] = useState(false);
     const [text, setText] = useState(prefix + initialText);
     const [unmodifiedText, setUnmodifiedText] = useState("");
 
     const handleTextClick = () => {
-        setIsEditing(true);
         setUnmodifiedText(text);
+        if (onEdit) {
+            onEdit();
+        }
+        if (setActiveSection()) {
+            setIsEditing(true);
+        }
     };
 
     const handleBlur = () => {
