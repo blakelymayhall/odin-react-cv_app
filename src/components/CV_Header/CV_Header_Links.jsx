@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import "../../styles/CV_header/cv_header.css";
 import EditableText from "../EditableText";
 import { CV_App_Modes } from "../../App";
 import { CV_App_Editable_Sections } from "../../App";
 import AddRemoveContentButton from "../AddRemoveContentButton";
+import "../../styles/cv_header.css";
 
 function CV_Header_Links({ appMode, activeSection, setActiveSection, onEdit }) {
     const [headerLinks, setHeaderLinks] = useState(() => {

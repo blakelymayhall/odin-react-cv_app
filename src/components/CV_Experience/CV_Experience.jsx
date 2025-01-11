@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import "../../styles/CV_Experience/cv_experience.css";
 import CV_Experience_Row from "./CV_Experience_Row";
 import AddRemoveContentButton from "../AddRemoveContentButton";
 import { CV_App_Modes } from "../../App";
 import { CV_App_Editable_Sections } from "../../App";
 import { faker } from "@faker-js/faker";
+import "../../styles/cv_experience.css";
 
 function CV_Experience({ appMode, activeSection, setActiveSection }) {
     const generateRandomDateRange = () => {
@@ -34,36 +34,20 @@ function CV_Experience({ appMode, activeSection, setActiveSection }) {
                     jobTitle: `${faker.company.buzzVerb()} ${faker.company.buzzNoun()}`,
                     jobDateRange: generateRandomDateRange(),
                     jobBullets: [
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
+                        faker.lorem.sentence({ min: 8, max: 10 }),
+                        faker.lorem.sentence({ min: 8, max: 10 }),
+                        faker.lorem.sentence({ min: 8, max: 10 }),
+                        faker.lorem.sentence({ min: 8, max: 10 }),
                     ],
                 },
                 {
                     jobTitle: `${faker.company.buzzVerb()} ${faker.company.buzzNoun()}`,
                     jobDateRange: generateRandomDateRange(),
                     jobBullets: [
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                    ],
-                },
-            ],
-        },
-        {
-            companyName: faker.company.name(),
-            companyLocation: `${faker.location.city()}, ${faker.location.state({ abbreviated: true })}`,
-            jobs: [
-                {
-                    jobTitle: `${faker.company.buzzVerb()} ${faker.company.buzzNoun()}`,
-                    jobDateRange: generateRandomDateRange(),
-                    jobBullets: [
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
+                        faker.lorem.sentence({ min: 8, max: 10 }),
+                        faker.lorem.sentence({ min: 8, max: 10 }),
+                        faker.lorem.sentence({ min: 8, max: 10 }),
+                        faker.lorem.sentence({ min: 8, max: 10 }),
                     ],
                 },
             ],
@@ -76,9 +60,25 @@ function CV_Experience({ appMode, activeSection, setActiveSection }) {
                     jobTitle: `${faker.company.buzzVerb()} ${faker.company.buzzNoun()}`,
                     jobDateRange: generateRandomDateRange(),
                     jobBullets: [
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
-                        faker.lorem.sentence({ min: 8, max: 14 }),
+                        faker.lorem.sentence({ min: 8, max: 10 }),
+                        faker.lorem.sentence({ min: 8, max: 10 }),
+                        faker.lorem.sentence({ min: 8, max: 10 }),
+                        faker.lorem.sentence({ min: 8, max: 10 }),
+                    ],
+                },
+            ],
+        },
+        {
+            companyName: faker.company.name(),
+            companyLocation: `${faker.location.city()}, ${faker.location.state({ abbreviated: true })}`,
+            jobs: [
+                {
+                    jobTitle: `${faker.company.buzzVerb()} ${faker.company.buzzNoun()}`,
+                    jobDateRange: generateRandomDateRange(),
+                    jobBullets: [
+                        faker.lorem.sentence({ min: 8, max: 10 }),
+                        faker.lorem.sentence({ min: 8, max: 10 }),
+                        faker.lorem.sentence({ min: 8, max: 10 }),
                     ],
                 },
             ],

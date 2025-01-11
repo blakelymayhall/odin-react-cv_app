@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import "../../styles/CV_Objective/cv_objective.css";
 import EditableText from "../EditableText";
 import { CV_App_Modes } from "../../App";
 import { CV_App_Editable_Sections } from "../../App";
+import "../../styles/cv_objective.css";
 
 function CV_Objective({ setActiveSection, appMode, activeSection }) {
     const [objectiveState, setObjectiveState] = useState(() => {

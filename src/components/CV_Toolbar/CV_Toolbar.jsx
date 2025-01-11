@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import CV_Toolbar_Button from "./CV_Toolbar_Button";
 import { CV_App_Modes } from "../../App";
-import "../../styles/CV_Toolbar/cv_toolbar.css";
+import "../../styles/cv_toolbar.css";
 
 function CV_Toolbar({ handleSetMode }) {
     const [toolbarState, setToolbarState] = useState(0);
