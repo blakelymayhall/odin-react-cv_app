@@ -35,8 +35,8 @@ function CV_Experience({ appMode, activeSection, setActiveSection }) {
                     jobDateRange: "Oct 2024 to Present (5 mos)",
                     jobBullets: [
                         "Led development efforts for the modeling, simulation, and system implementation of network enabled weapons ",
-                        "Planned, refined, and released work to team of cross-discipline engineers",
-                        "Established version control strategy, continuous integration (CI) capabilities, interface control documents, and project-level requirements",
+                        "Planned, refined, and released engineering work to team of cross-discipline engineers",
+                        "Established project-level requirements, version control strategy, continuous integration (CI) capabilities, and interface control documents",
                         "Collaborated with an external team and championed Boeing's strategic interests in autonomous flight",
                     ],
                 },
@@ -45,7 +45,7 @@ function CV_Experience({ appMode, activeSection, setActiveSection }) {
                     jobDateRange: "April 2024 to Present (10 mos)",
                     jobBullets: [
                         "Worked with international customers to resolve high-priority system failures, leveraging model-based engineering to identify root causes",
-                        "Ported legacy FORTRAN rocket simulation into MATRIXx environment",
+                        "Ported legacy FORTRAN rocket simulation into MATRIXx environment and improved modeling",
                         "Developed C++ based REPL layer and VSCode ext. for MATRIXx to reduce analysis time",
                     ],
                 },
