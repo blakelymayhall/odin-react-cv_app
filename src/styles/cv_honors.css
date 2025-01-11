@@ -1,0 +1,24 @@
+#honorsSection {
+    max-width: 100%;
+    margin: 0 auto;
+    color: #444444;
+    padding-top: 5mm;
+  }
+  
+  #honorsContainer{
+    display: grid;
+    grid-template-columns: 10% 2% 87%;
+  }
+  
+  #honorsTitle {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  
+  #honorsList {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    display: flex;
+    flex-direction: column;
+  }
+  

@@ -6,6 +6,7 @@ import CV_Education from "./components/CV_Education/CV_Education.jsx";
 import CV_Toolbar from "./components/CV_Toolbar/CV_Toolbar.jsx";
 import CV_Experience from "./components/CV_Experience/CV_Experience.jsx";
 import CV_Skills from "./components/CV_Skills/CV_Skills.jsx";
+import CV_Honors from "./components/CV_Honors/CV_Honors.jsx";
 
 export const CV_App_Modes = {
     PRINT: "print",
@@ -20,6 +21,7 @@ export const CV_App_Editable_Sections = {
     EDUCATION: "education",
     EXPERIENCE: "experience",
     SKILLS: "skills",
+    HONORS: "honors",
 };
 
 const App = () => {
@@ -68,6 +70,14 @@ const App = () => {
                 setActiveSection={() => {
                     setActiveSection(CV_App_Editable_Sections.SKILLS);
                     return sectionBeingEdited == CV_App_Editable_Sections.SKILLS;
+                }}
+            />
+            <CV_Honors
+                appMode={CV_App_Mode}
+                activeSection={sectionBeingEdited}
+                setActiveSection={() => {
+                    setActiveSection(CV_App_Editable_Sections.HONORS);
+                    return sectionBeingEdited == CV_App_Editable_Sections.HONORS;
                 }}
             />
         </>
