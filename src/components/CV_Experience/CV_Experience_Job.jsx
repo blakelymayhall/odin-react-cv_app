@@ -1,10 +1,10 @@
 import { useState } from "react";
-import "../../styles/CV_Experience/cv_experience.css";
 import EditableText from "../EditableText";
 import AddRemoveContentButton from "../AddRemoveContentButton";
 import { CV_App_Editable_Sections } from "../../App";
 import { CV_App_Modes } from "../../App";
 import { faker } from "@faker-js/faker";
+import "../../styles/cv_experience.css";
 
 function CV_Experience_Job({
     experienceJob,

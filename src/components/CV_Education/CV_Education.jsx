@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import "../../styles/CV_Education/cv_education.css";
 import CV_Education_Row from "./CV_Education_Row";
 import { CV_App_Modes } from "../../App";
 import { CV_App_Editable_Sections } from "../../App";
 import AddRemoveContentButton from "../AddRemoveContentButton";
+import "../../styles/cv_education.css";
 
 import { faker } from "@faker-js/faker";
 

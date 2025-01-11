@@ -4,7 +4,7 @@ import CV_Header_Contact from "./CV_Header_Contact";
 import CV_Header_Links from "./CV_Header_Links";
 import { CV_App_Modes } from "../../App";
 import { CV_App_Editable_Sections } from "../../App";
-import "../../styles/CV_header/cv_header.css";
+import "../../styles/cv_header.css";
 
 import { faker } from "@faker-js/faker";
 

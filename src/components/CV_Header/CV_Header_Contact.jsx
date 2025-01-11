@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import "../../styles/CV_header/cv_header.css";
 import EditableText from "../EditableText";
+import "../../styles/cv_header.css";
 
 import { faker } from "@faker-js/faker";
 

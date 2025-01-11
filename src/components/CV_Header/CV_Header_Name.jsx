@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import "../../styles/CV_header/cv_header.css";
 import EditableText from "../EditableText";
+import "../../styles/cv_header.css";
 
 function CV_Header_Name({ firstName, lastName, setActiveSection, onEdit }) {
     const [headerName, setHeaderName] = useState(() => {

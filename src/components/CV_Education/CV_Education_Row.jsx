@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "../../styles/CV_Education/cv_education.css";
 import EditableText from "../EditableText";
+import "../../styles/cv_education.css";
 
-function CV_Education_Row({ educationRow, setterFunction, setActiveSection, onEdit }) {
+function CV_Education_Row({ educationRow, setterFunction, setActiveSection }) {
     const [educationRowState, setEducationRowState] = useState(educationRow);
 
     const updateEducationField = (fieldName, newValue) => {
@@ -18,21 +18,18 @@ function CV_Education_Row({ educationRow, setterFunction, setActiveSection, onEd
                 initialText={educationRowState.schoolName}
                 setterFunction={(newSchool) => updateEducationField("schoolName", newSchool)}
                 setActiveSection={setActiveSection}
-                onEdit={onEdit}
             />
             <EditableText
                 textClass="educationDegree"
                 initialText={educationRowState.degree}
                 setterFunction={(newDegree) => updateEducationField("degree", newDegree)}
                 setActiveSection={setActiveSection}
-                onEdit={onEdit}
             />
             <EditableText
                 textClass="educationDate"
                 initialText={educationRowState.graduationDate}
                 setterFunction={(newDate) => updateEducationField("graduationDate", newDate)}
                 setActiveSection={setActiveSection}
-                onEdit={onEdit}
             />
             <EditableText
                 prefix="GPA: "
@@ -40,7 +37,6 @@ function CV_Education_Row({ educationRow, setterFunction, setActiveSection, onEd
                 initialText={educationRowState.GPA}
                 setterFunction={(newGPA) => updateEducationField("GPA", newGPA)}
                 setActiveSection={setActiveSection}
-                onEdit={onEdit}
             />
         </div>
     );

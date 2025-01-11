@@ -1,5 +1,4 @@
-import { useState } from "react";
-import "../../styles/CV_Toolbar/cv_toolbar.css";
+import "../../styles/cv_toolbar.css";
 
 function CV_Toolbar_Button({ buttonID = "", buttonText = "", onClick }) {
     return (
