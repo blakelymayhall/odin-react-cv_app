@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import EditableText from "../EditableText";
 import { CV_App_Modes } from "../../App";
 import { CV_App_Editable_Sections } from "../../App";
+import AddRemoveContentButton from "../AddRemoveContentButton";
 import "../../styles/cv_honors.css";
 
 import { faker } from "@faker-js/faker";
@@ -36,11 +37,30 @@ function CV_Honors({ setActiveSection, appMode, activeSection }) {
         };
     };
 
+    const addHonor = () => {
+        let honorsCopy = [...honors];
+        honorsCopy.unshift("New Honor/Activity");
+        setHonors(honorsCopy);
+    };
+
+    const removeHonor = () => {
+        let honorsCopy = [...honors];
+        honorsCopy.pop();
+        setHonors(honorsCopy);
+    };
+
     return (
         <div id="honorsSection" className={isActiveSection() ? "activeSection" : ""}>
             <div id="honorsContainer">
                 <p id="honorsTitle">Honors & Activities:</p>
                 <div id="honorsList">
+                    {appMode == CV_App_Modes.EDIT && activeSection == CV_App_Editable_Sections.HONORS && (
+                        <AddRemoveContentButton
+                            buttonID="addLinkButton"
+                            sectionFunction={addHonor}
+                            buttonText="Add Honor/Activity"
+                        />
+                    )}
                     {honors.map((honor, index) => {
                         return (
                             <EditableText
@@ -51,6 +71,13 @@ function CV_Honors({ setActiveSection, appMode, activeSection }) {
                             />
                         );
                     })}
+                    {appMode == CV_App_Modes.EDIT && activeSection == CV_App_Editable_Sections.HONORS && (
+                        <AddRemoveContentButton
+                            buttonID="addLinkButton"
+                            sectionFunction={removeHonor}
+                            buttonText="Remove Honor/Activity"
+                        />
+                    )}
                 </div>
             </div>
         </div>

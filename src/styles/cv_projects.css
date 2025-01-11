@@ -1,0 +1,23 @@
+#projectsSection {
+    max-width: 100%;
+    margin: 0 auto;
+    color: #444444;
+    padding-top: 5mm;
+  }
+  
+  #projectsContainer {
+    display: grid;
+    grid-template-columns: 10% 2% 95%;
+  }
+  
+  #projectsTitle {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  
+  #projectsList {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    display: flex;
+    flex-direction: column;
+  }
