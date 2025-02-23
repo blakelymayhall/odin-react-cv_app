@@ -5,7 +5,7 @@ import { CV_App_Editable_Sections } from "../../App";
 import AddRemoveContentButton from "../AddRemoveContentButton";
 import "../../styles/cv_header.css";
 
-function CV_Header_Links({ appMode, activeSection, setActiveSection, onEdit }) {
+function CV_Header_Links({ updateResumeData, appMode, activeSection, setActiveSection, onEdit, resumeData }) {
     const [headerLinks, setHeaderLinks] = useState(() => {
         const savedData = localStorage.getItem("links");
         return savedData ? JSON.parse(savedData) : ["https://www.linkedin.com/", "https://github.com/"];
@@ -13,7 +13,14 @@ function CV_Header_Links({ appMode, activeSection, setActiveSection, onEdit }) {
 
     useEffect(() => {
         localStorage.setItem("links", JSON.stringify(headerLinks));
+        updateResumeData("headerLinks", headerLinks);
     }, [headerLinks]);
+
+    useEffect(() => {
+        if (resumeData && resumeData.headerLinks !== headerLinks) {
+            setHeaderLinks(resumeData.headerLinks);
+        }
+    }, [resumeData]);
 
     const modifyLink = (linkIndex) => {
         return (newLink) => {

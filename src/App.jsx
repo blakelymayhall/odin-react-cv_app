@@ -29,6 +29,22 @@ export const CV_App_Editable_Sections = {
 const App = () => {
     const [CV_App_Mode, setCV_App_Mode] = useState(CV_App_Modes.EDIT);
     const [sectionBeingEdited, setSectionBeingEdited] = useState(0);
+    const [resumeData, setResumeData] = useState(null);
+
+    const updateResumeData = (key, value) => {
+        setResumeData((prevState) => ({
+            ...prevState,
+            [key]: value,
+        }));
+    };
+
+    const getResumeData = () => {
+        return resumeData;
+    };
+
+    const updateFromUpload = (new_data) => {
+        setResumeData({ ...new_data });
+    };
 
     const handleSetMode = (CV_App_Mode) => {
         setCV_App_Mode(CV_App_Mode);
@@ -40,55 +56,77 @@ const App = () => {
 
     return (
         <>
-            <CV_Toolbar handleSetMode={handleSetMode} />
-            <CV_Header appMode={CV_App_Mode} activeSection={sectionBeingEdited} setActiveSection={setActiveSection} />
+            <CV_Toolbar
+                handleSetMode={handleSetMode}
+                getResumeData={getResumeData}
+                updateFromUpload={updateFromUpload}
+            />
+            <CV_Header
+                updateResumeData={updateResumeData}
+                appMode={CV_App_Mode}
+                activeSection={sectionBeingEdited}
+                setActiveSection={setActiveSection}
+                resumeData={resumeData}
+            />
             <CV_Objective
+                updateResumeData={updateResumeData}
                 appMode={CV_App_Mode}
                 activeSection={sectionBeingEdited}
                 setActiveSection={() => {
                     setActiveSection(CV_App_Editable_Sections.OBJECTIVE);
                     return true;
                 }}
+                resumeData={resumeData}
             />
             <CV_Education
+                updateResumeData={updateResumeData}
                 appMode={CV_App_Mode}
                 activeSection={sectionBeingEdited}
                 setActiveSection={() => {
                     setActiveSection(CV_App_Editable_Sections.EDUCATION);
                     return sectionBeingEdited == CV_App_Editable_Sections.EDUCATION;
                 }}
+                resumeData={resumeData}
             />
             <CV_Experience
+                updateResumeData={updateResumeData}
                 appMode={CV_App_Mode}
                 activeSection={sectionBeingEdited}
                 setActiveSection={() => {
                     setActiveSection(CV_App_Editable_Sections.EXPERIENCE);
                     return sectionBeingEdited == CV_App_Editable_Sections.EXPERIENCE;
                 }}
+                resumeData={resumeData}
             />
             <CV_Skills
+                updateResumeData={updateResumeData}
                 appMode={CV_App_Mode}
                 activeSection={sectionBeingEdited}
                 setActiveSection={() => {
                     setActiveSection(CV_App_Editable_Sections.SKILLS);
                     return sectionBeingEdited == CV_App_Editable_Sections.SKILLS;
                 }}
+                resumeData={resumeData}
             />
             <CV_Honors
+                updateResumeData={updateResumeData}
                 appMode={CV_App_Mode}
                 activeSection={sectionBeingEdited}
                 setActiveSection={() => {
                     setActiveSection(CV_App_Editable_Sections.HONORS);
                     return sectionBeingEdited == CV_App_Editable_Sections.HONORS;
                 }}
+                resumeData={resumeData}
             />
             <CV_Projects
+                updateResumeData={updateResumeData}
                 appMode={CV_App_Mode}
                 activeSection={sectionBeingEdited}
                 setActiveSection={() => {
                     setActiveSection(CV_App_Editable_Sections.PROJECTS);
                     return sectionBeingEdited == CV_App_Editable_Sections.PROJECTS;
                 }}
+                resumeData={resumeData}
             />
         </>
     );

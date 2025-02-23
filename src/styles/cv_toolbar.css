@@ -1,8 +1,8 @@
-#toolbar {
+.toolbar {
     height: 7mm;
     display: flex;
     flex-direction: row;
-    background-color: lightgrey;
+    background-color: darkgray;
     box-sizing: border-box;
     position: absolute;
     top: 0;
@@ -10,6 +10,10 @@
     border: 1px solid #000; /* Black border for the edge */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a slight shadow for effect */  
     box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+#rightToolbar {
+    top: 6mm;
 }
 
 .toolbarButton {

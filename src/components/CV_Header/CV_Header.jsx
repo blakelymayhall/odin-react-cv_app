@@ -8,7 +8,7 @@ import "../../styles/cv_header.css";
 
 import { faker } from "@faker-js/faker";
 
-function CV_Header({ appMode, activeSection, setActiveSection }) {
+function CV_Header({ updateResumeData, appMode, activeSection, setActiveSection, resumeData }) {
     const firstName = faker.person.firstName();
     const lastName = faker.person.lastName();
 
@@ -23,29 +23,35 @@ function CV_Header({ appMode, activeSection, setActiveSection }) {
     return (
         <div id="headerSection" className={isActiveSection() ? "activeSection" : ""}>
             <CV_Header_Name
+                updateResumeData={updateResumeData}
                 firstName={firstName}
                 lastName={lastName}
                 setActiveSection={() => {
                     setActiveSection(CV_App_Editable_Sections.HEADER_OTHER);
                     return true;
                 }}
+                resumeData={resumeData}
             />
             <div id="headerInfoRow">
                 <CV_Header_Contact
+                    updateResumeData={updateResumeData}
                     firstName={firstName}
                     lastName={lastName}
                     setActiveSection={() => {
                         setActiveSection(CV_App_Editable_Sections.HEADER_OTHER);
                         return true;
                     }}
+                    resumeData={resumeData}
                 />
                 <CV_Header_Links
+                    updateResumeData={updateResumeData}
                     appMode={appMode}
                     activeSection={activeSection}
                     setActiveSection={() => {
                         setActiveSection(CV_App_Editable_Sections.HEADER_LINKS);
                         return true;
                     }}
+                    resumeData={resumeData}
                 />
             </div>
             <div className="lineBreak"></div>

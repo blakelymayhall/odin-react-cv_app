@@ -7,7 +7,7 @@ import "../../styles/cv_education.css";
 
 import { faker } from "@faker-js/faker";
 
-function CV_Education({ appMode, activeSection, setActiveSection }) {
+function CV_Education({ updateResumeData, appMode, activeSection, setActiveSection, resumeData }) {
     const educations = [
         {
             schoolName: `${faker.food.vegetable()} University`,
@@ -42,7 +42,14 @@ function CV_Education({ appMode, activeSection, setActiveSection }) {
 
     useEffect(() => {
         localStorage.setItem("educations", JSON.stringify(educationState));
+        updateResumeData("educations", educationState);
     }, [educationState]);
+
+    useEffect(() => {
+        if (resumeData && resumeData.educations !== educationState) {
+            setEducationState(resumeData.educations);
+        }
+    }, [resumeData]);
 
     const modifyEducation = (eduIndex) => {
         return (newEducation) => {
