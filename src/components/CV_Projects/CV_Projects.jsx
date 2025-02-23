@@ -7,7 +7,7 @@ import "../../styles/cv_projects.css";
 
 import { faker } from "@faker-js/faker";
 
-function CV_Projects({ setActiveSection, appMode, activeSection }) {
+function CV_Projects({ updateResumeData, setActiveSection, appMode, activeSection, resumeData }) {
     const [projects, setProjects] = useState(() => {
         const savedData = localStorage.getItem("projects");
         return savedData
@@ -23,7 +23,14 @@ function CV_Projects({ setActiveSection, appMode, activeSection }) {
 
     useEffect(() => {
         localStorage.setItem("projects", JSON.stringify(projects));
+        updateResumeData("projects", projects);
     }, [projects]);
+
+    useEffect(() => {
+        if (resumeData && resumeData.projects !== projects) {
+            setProjects(resumeData.projects);
+        }
+    }, [resumeData]);
 
     const isActiveSection = () => {
         return appMode == CV_App_Modes.EDIT && activeSection == CV_App_Editable_Sections.PROJECTS;

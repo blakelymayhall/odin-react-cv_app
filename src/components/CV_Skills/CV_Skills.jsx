@@ -6,7 +6,7 @@ import "../../styles/cv_skills.css";
 
 import { faker } from "@faker-js/faker";
 
-function CV_Skills({ setActiveSection, appMode, activeSection }) {
+function CV_Skills({ updateResumeData, setActiveSection, appMode, activeSection, resumeData }) {
     const [skills, setSkills] = useState(() => {
         const savedData = localStorage.getItem("skills");
         return savedData
@@ -29,7 +29,14 @@ function CV_Skills({ setActiveSection, appMode, activeSection }) {
 
     useEffect(() => {
         localStorage.setItem("skills", JSON.stringify(skills));
+        updateResumeData("skills", skills);
     }, [skills]);
+
+    useEffect(() => {
+        if (resumeData && resumeData.skills !== skills) {
+            setSkills(resumeData.skills);
+        }
+    }, [resumeData]);
 
     const isActiveSection = () => {
         return appMode == CV_App_Modes.EDIT && activeSection == CV_App_Editable_Sections.SKILLS;

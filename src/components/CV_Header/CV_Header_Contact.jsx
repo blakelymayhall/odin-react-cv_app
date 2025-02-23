@@ -4,7 +4,7 @@ import "../../styles/cv_header.css";
 
 import { faker } from "@faker-js/faker";
 
-function CV_Header_Contact({ firstName, lastName, setActiveSection, onEdit }) {
+function CV_Header_Contact({ updateResumeData, firstName, lastName, setActiveSection, onEdit, resumeData }) {
     const [headerContactInfo, setHeaderContactInfo] = useState(() => {
         const savedData = localStorage.getItem("contactInfo");
         return savedData
@@ -20,7 +20,14 @@ function CV_Header_Contact({ firstName, lastName, setActiveSection, onEdit }) {
 
     useEffect(() => {
         localStorage.setItem("contactInfo", JSON.stringify(headerContactInfo));
+        updateResumeData("headerContactInfo", headerContactInfo);
     }, [headerContactInfo]);
+
+    useEffect(() => {
+        if (resumeData && resumeData.headerContactInfo !== headerContactInfo) {
+            setHeaderContactInfo(resumeData.headerContactInfo);
+        }
+    }, [resumeData]);
 
     const updateContactField = (fieldName, newValue) => {
         const newContactInfo = { ...headerContactInfo, [fieldName]: newValue };
@@ -33,6 +40,7 @@ function CV_Header_Contact({ firstName, lastName, setActiveSection, onEdit }) {
             <ul id="headerContact">
                 <li>
                     <EditableText
+                        key={headerContactInfo.email}
                         prefix="Email: "
                         initialText={headerContactInfo.email}
                         setterFunction={(newEmail) => updateContactField("email", newEmail)}
@@ -42,6 +50,7 @@ function CV_Header_Contact({ firstName, lastName, setActiveSection, onEdit }) {
                 </li>
                 <li>
                     <EditableText
+                        key={headerContactInfo.phone}
                         prefix="Phone: "
                         initialText={headerContactInfo.phone}
                         setterFunction={(newPhone) => updateContactField("phone", newPhone)}
@@ -51,6 +60,7 @@ function CV_Header_Contact({ firstName, lastName, setActiveSection, onEdit }) {
                 </li>
                 <li>
                     <EditableText
+                        key={headerContactInfo.address}
                         prefix="Address: "
                         initialText={headerContactInfo.address}
                         setterFunction={(newAddy) => updateContactField("address", newAddy)}

@@ -7,7 +7,7 @@ import "../../styles/cv_honors.css";
 
 import { faker } from "@faker-js/faker";
 
-function CV_Honors({ setActiveSection, appMode, activeSection }) {
+function CV_Honors({ updateResumeData, setActiveSection, appMode, activeSection, resumeData }) {
     const [honors, setHonors] = useState(() => {
         const savedData = localStorage.getItem("honors");
         return savedData
@@ -23,7 +23,14 @@ function CV_Honors({ setActiveSection, appMode, activeSection }) {
 
     useEffect(() => {
         localStorage.setItem("honors", JSON.stringify(honors));
+        updateResumeData("honors", honors);
     }, [honors]);
+
+    useEffect(() => {
+        if (resumeData && resumeData.honors !== honors) {
+            setHonors(resumeData.honors);
+        }
+    }, [resumeData]);
 
     const isActiveSection = () => {
         return appMode == CV_App_Modes.EDIT && activeSection == CV_App_Editable_Sections.HONORS;

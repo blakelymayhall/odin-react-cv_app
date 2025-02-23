@@ -6,7 +6,7 @@ import { CV_App_Editable_Sections } from "../../App";
 import { faker } from "@faker-js/faker";
 import "../../styles/cv_experience.css";
 
-function CV_Experience({ appMode, activeSection, setActiveSection }) {
+function CV_Experience({ updateResumeData, appMode, activeSection, setActiveSection, resumeData }) {
     const generateRandomDateRange = () => {
         const date1 = faker.date.between({
             from: "2000-01-01T00:00:00.000Z",
@@ -94,7 +94,15 @@ function CV_Experience({ appMode, activeSection, setActiveSection }) {
 
     useEffect(() => {
         localStorage.setItem("experiences", JSON.stringify(experienceState));
+        updateResumeData("experiences", experienceState);
     }, [experienceState]);
+
+    useEffect(() => {
+        if (resumeData && resumeData.experiences !== experienceState) {
+            console.log(resumeData.experiences);
+            setExperienceState(resumeData.experiences);
+        }
+    }, [resumeData]);
 
     const modifyExperience = (expIndex) => {
         return (newExperience) => {

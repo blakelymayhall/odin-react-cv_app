@@ -43,7 +43,7 @@ ul {
 #headerInfoRow {
     min-width: 100%;
     display: grid;
-    grid-template-columns: auto 10% auto;
+    grid-template-columns: auto 20% auto;
     grid-template-rows: 20% 80%;
 }
 
