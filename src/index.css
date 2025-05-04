@@ -32,7 +32,17 @@
   .hide-on-print {
     display: none !important;
   }
+
+  .page-break {
+    break-inside: avoid;
+  }
+
+  @page {
+    padding-top: 0.25in;
+    padding-bottom: 0.25in;
+  }
 }
+
 
 body {
   display: flex;

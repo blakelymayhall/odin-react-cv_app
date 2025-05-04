@@ -40,7 +40,8 @@ function CV_Toolbar({ handleSetMode, getResumeData, updateFromUpload }) {
         window.location.reload();
     };
     const handleSettingsButtonClicked = () => {
-        handleSetMode(CV_App_Modes.SETTINGS);
+        // handleSetMode(CV_App_Modes.SETTINGS);
+        alert("Not Implemented - In Development");
     };
     const handleImportButtonClicked = () => {
         fileInputRef.current.click();
