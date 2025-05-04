@@ -31,13 +31,6 @@ function CV_Education_Row({ educationRow, setterFunction, setActiveSection }) {
                 setterFunction={(newDate) => updateEducationField("graduationDate", newDate)}
                 setActiveSection={setActiveSection}
             />
-            <EditableText
-                prefix="GPA: "
-                textClass="educationGPA"
-                initialText={educationRowState.GPA}
-                setterFunction={(newGPA) => updateEducationField("GPA", newGPA)}
-                setActiveSection={setActiveSection}
-            />
         </div>
     );
 }

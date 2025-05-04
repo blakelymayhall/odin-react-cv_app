@@ -118,16 +118,6 @@ const App = () => {
                 }}
                 resumeData={resumeData}
             />
-            <CV_Projects
-                updateResumeData={updateResumeData}
-                appMode={CV_App_Mode}
-                activeSection={sectionBeingEdited}
-                setActiveSection={() => {
-                    setActiveSection(CV_App_Editable_Sections.PROJECTS);
-                    return sectionBeingEdited == CV_App_Editable_Sections.PROJECTS;
-                }}
-                resumeData={resumeData}
-            />
         </>
     );
 };
