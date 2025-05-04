@@ -73,7 +73,7 @@ function CV_Experience_Row({
     };
 
     return (
-        <div className="experienceRow">
+        <div className="experienceRow page-break">
             <EditableText
                 textClass="experienceCompanyName"
                 initialText={experienceRowState.companyName}
